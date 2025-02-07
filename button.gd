@@ -14,7 +14,7 @@ func _on_pressed() -> void:
 	#if error != OK:
 		#print("Erreur lors de l'envoi de la requête :", error)
 	print("Requête POST envoyée")
-	var url = "http://192.168.1.173:8000/api/users/all"
+	var url = "http://192.168.1.173:8000/api/admin/ingredients/all"
 	var headers = ["Content-Type: application/json"]
 	var data = {
 		"email":"amdin@gmail.com",
@@ -22,7 +22,6 @@ func _on_pressed() -> void:
 	}
 	var body = JSON.stringify(data)
 	var error = http_request.request(url, headers, HTTPClient.METHOD_GET, body)
-	print("Erreur lors de l'envoi de la requête :", error)
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code == 200:  # Vérifie si la requête a réussi
