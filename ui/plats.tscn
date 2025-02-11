@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ej13bnav3et"]
+
+[ext_resource type="Script" path="res://Script/plats.gd" id="1_16kkq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcc4a"]
+size = Vector3(2.12402, 2.7514, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_thl6c"]
+
+[node name="plats" type="Node3D"]
+
+[node name="button" type="Area3D" parent="."]
+script = ExtResource("1_16kkq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145874, -0.094574, 0)
+shape = SubResource("BoxShape3D_gcc4a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="button"]
+visible = false
+mesh = SubResource("BoxMesh_thl6c")
+
+[node name="Label3D" type="Label3D" parent="button"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+modulate = Color(0.356863, 0.27451, 1, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "+"
+font_size = 200
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 552.0
+offset_bottom = 235.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_right = 552.0
+offset_bottom = 234.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
